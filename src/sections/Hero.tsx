@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { SITE_URL } from '../constants'
 
 function WorkflowMock() {
@@ -94,7 +95,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="#planos"
+              href="/#planos"
               className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-neon-dim to-neon px-8 py-4 text-base font-bold text-black transition hover:brightness-110 glow-btn"
             >
               Começar agora
@@ -110,7 +111,13 @@ export function Hero() {
           </div>
           <p className="mt-6 text-sm text-zinc-500">
             A partir de <span className="font-semibold text-zinc-300">R$147</span>{' '}
-            · Ativação rápida · Suporte humano
+            · Ativação rápida · Suporte humano ·{' '}
+            <Link
+              to="/comparar"
+              className="font-medium text-neon-bright underline-offset-2 hover:underline"
+            >
+              Por que não é só mais um VPS com n8n
+            </Link>
           </p>
         </div>
         <WorkflowMock />

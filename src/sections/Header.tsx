@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { SITE_URL } from '../constants'
 
 const nav = [
-  { label: 'Solução', href: '#solucao' },
-  { label: 'Benefícios', href: '#beneficios' },
-  { label: 'Como funciona', href: '#como-funciona' },
-  { label: 'Planos', href: '#planos' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Solução', href: '/#solucao' },
+  { label: 'Benefícios', href: '/#beneficios' },
+  { label: 'Como funciona', href: '/#como-funciona' },
+  { label: 'Planos', href: '/#planos' },
+  { label: 'FAQ', href: '/#faq' },
 ]
 
 export function Header() {
@@ -15,8 +16,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-surface/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a
-          href="#topo"
+        <Link
+          to="/"
           className="font-display text-lg font-bold tracking-tight text-white"
           onClick={() => setOpen(false)}
         >
@@ -24,7 +25,7 @@ export function Header() {
           <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-widest text-neon">
             .theretech
           </span>
-        </a>
+        </Link>
         <nav
           className="hidden items-center gap-8 md:flex"
           aria-label="Principal"
@@ -38,6 +39,12 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <Link
+            to="/comparar"
+            className="text-sm font-medium text-zinc-400 transition-colors hover:text-neon-bright"
+          >
+            Por que nós
+          </Link>
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
           <a
@@ -49,7 +56,7 @@ export function Header() {
             Acessar painel
           </a>
           <a
-            href="#planos"
+            href="/#planos"
             className="hidden items-center justify-center rounded-xl bg-gradient-to-r from-neon-dim to-neon px-4 py-2.5 text-sm font-bold text-black transition hover:brightness-110 glow-btn sm:inline-flex"
             onClick={() => setOpen(false)}
           >
@@ -83,6 +90,13 @@ export function Header() {
                 {item.label}
               </a>
             ))}
+            <Link
+              to="/comparar"
+              className="rounded-lg px-3 py-3 text-sm font-medium text-zinc-300 hover:bg-white/5 hover:text-neon-bright"
+              onClick={() => setOpen(false)}
+            >
+              Por que nós
+            </Link>
             <a
               href={SITE_URL}
               target="_blank"
@@ -93,7 +107,7 @@ export function Header() {
               Acessar painel
             </a>
             <a
-              href="#planos"
+              href="/#planos"
               className="mt-2 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-neon-dim to-neon py-3 text-sm font-bold text-black glow-btn"
               onClick={() => setOpen(false)}
             >

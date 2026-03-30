@@ -18,7 +18,7 @@ export function FinalCta() {
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="#planos"
+                href="/#planos"
                 className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-neon-dim to-neon px-10 py-4 text-base font-bold text-black transition hover:brightness-110 glow-btn sm:w-auto"
               >
                 Escolher meu plano

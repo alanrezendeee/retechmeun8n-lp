@@ -1,9 +1,15 @@
+import { Link } from 'react-router-dom'
 import { SITE_URL } from '../constants'
 
-const links = [
-  { label: 'Solução', href: '#solucao' },
-  { label: 'Planos', href: '#planos' },
-  { label: 'FAQ', href: '#faq' },
+const links: {
+  label: string
+  href: string
+  external?: boolean
+}[] = [
+  { label: 'Solução', href: '/#solucao' },
+  { label: 'Planos', href: '/#planos' },
+  { label: 'Por que nós', href: '/comparar' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Acessar plataforma', href: SITE_URL, external: true },
 ]
 
@@ -19,18 +25,35 @@ export function Footer() {
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-8 gap-y-3" aria-label="Rodapé">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              {...(l.external
-                ? { target: '_blank', rel: 'noopener noreferrer' }
-                : {})}
-              className="text-sm font-medium text-zinc-400 transition hover:text-neon-bright"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.external ? (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-zinc-400 transition hover:text-neon-bright"
+              >
+                {l.label}
+              </a>
+            ) : l.href.startsWith('/') && !l.href.startsWith('/#') ? (
+              <Link
+                key={l.label}
+                to={l.href}
+                className="text-sm font-medium text-zinc-400 transition hover:text-neon-bright"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-sm font-medium text-zinc-400 transition hover:text-neon-bright"
+              >
+                {l.label}
+              </a>
+            ),
+          )}
         </nav>
       </div>
       <div className="mx-auto mt-12 max-w-6xl border-t border-white/5 px-4 pt-8 sm:px-6 lg:px-8">
