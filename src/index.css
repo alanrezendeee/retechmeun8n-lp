@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+
+  --color-surface: #050506;
+  --color-elevated: #0c0e12;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-neon: #00e676;
+  --color-neon-bright: #69f0ae;
+  --color-neon-dim: #00c853;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface font-sans text-zinc-100 antialiased;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-neon/30 text-white;
+  }
+}
+
+@layer utilities {
+  .text-gradient-neon {
+    @apply bg-gradient-to-r from-neon-bright via-neon to-emerald-300 bg-clip-text text-transparent;
+  }
+
+  .glow-ring {
+    box-shadow:
+      0 0 0 1px rgba(0, 230, 118, 0.25),
+      0 0 60px -12px rgba(0, 230, 118, 0.45);
+  }
+
+  .glow-btn {
+    box-shadow:
+      0 0 40px -8px rgba(0, 230, 118, 0.65),
+      0 8px 32px -12px rgba(0, 0, 0, 0.9);
+  }
+}
