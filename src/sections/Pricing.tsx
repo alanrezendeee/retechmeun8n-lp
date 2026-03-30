@@ -1,4 +1,4 @@
-import { SITE_URL } from '../constants'
+import { whatsAppUrlForPlan } from '../whatsappPlan'
 
 const plans = [
   {
@@ -101,7 +101,7 @@ export function Pricing() {
                 ))}
               </ul>
               <a
-                href={SITE_URL}
+                href={whatsAppUrlForPlan(plan.name, plan.price)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-8 inline-flex w-full items-center justify-center rounded-xl py-4 text-center text-sm font-bold transition ${
