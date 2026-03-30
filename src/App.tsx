@@ -1,3 +1,4 @@
+import { LiveVisitorsBadge } from './components/LiveVisitorsBadge'
 import { Benefits } from './sections/Benefits'
 import { Faq } from './sections/Faq'
 import { FinalCta } from './sections/FinalCta'
@@ -26,6 +27,7 @@ export default function App() {
         <Faq />
       </main>
       <Footer />
+      <LiveVisitorsBadge />
     </>
   )
 }
